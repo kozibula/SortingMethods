@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">SortingMethods</string>
+    <string name="action_settings">About</string>
+    <string name="button_bubble">Пряка размяна</string>
+    <string name="button_selection">Пряка селекция</string>
+    <string name="button_insertion">Пряко вмъкване</string>
+    <string name="sorting_method">Избран метод:</string>
+    <string name="sort_button_text">Сортирай!</string>
+    <string name="bubble_sort_function"><![CDATA[public void bubbleSortMethod(int[] numbers) {\n
+        \t for (int i = 0; i < numbers.length; i++) {\n
+            \t \t for (int j = 0; j < numbers.length - 1; j++) {\n
+               \t \t \t  if (numbers[j] > numbers[j + 1]) {\n
+                    \t \t \t \t int temp = numbers[j + 1];\n
+                    \t \t \t \t numbers[j + 1] = numbers[j];\n
+                    \t \t \t \t numbers[j] = temp;\n
+                \t \t \t }\n
+            \t \t }\n
+        \t }\n
+    }\n]]></string>
+    <string name="insertion_sort_function"><![CDATA[ public void insertionSortMethod(int[] numbers) {\n
+            \t for (int i = 1; i < numbers.length; i++) {\n
+                \t \t int temp = numbers[i];\n
+                \t \t int j = i;\n
+                \t \t while (j > 0 && numbers[j - 1] > temp) {\n
+                    \t \t \t numbers[j] = numbers[j - 1];\n
+                   \t \t \t  j--;\n
+               \t \t  }\n
+               \t \t  numbers[j] = temp;\n
+            \t }\n
+        }\n]]></string>
+    <string name="selection_sort_function"><![CDATA[public void selectionSortMethod(int[] numbers) {\n
+        \t for (int i = 0; i < numbers.length; i++) {\n
+            \t \t int index_of_min = i;\n
+            \t \t for (int j = i; j < numbers.length; j++) {\n
+              \t \t \t   if (numbers[index_of_min] > numbers[j]) {\n
+                \t \t \t \t     index_of_min = j;\n
+               \t \t \t  }\n
+            \t \t }\n
+            \t \t int temp = numbers[i];\n
+            \t \t numbers[i] = numbers[index_of_min];\n
+            \t \t numbers[index_of_min] = temp;\n
+        \t }\n
+    }\n]]></string>
+</resources>

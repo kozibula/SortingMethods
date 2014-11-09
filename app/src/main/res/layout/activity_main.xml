@@ -1,0 +1,34 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/app_background"
+    android:padding="15dp"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    tools:context=".MainActivity">
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/button_bubble"
+        android:id="@+id/button_bubble"
+        android:layout_marginTop="50dp"
+        android:onClick="onBubbleSortClick"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/button_insertion"
+        android:id="@+id/button_insertion"
+        android:layout_marginTop="50dp"
+        android:onClick="onInsertionSortClick"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/button_selection"
+        android:id="@+id/button_selection"
+        android:layout_marginTop="50dp"
+        android:onClick="onSelectionSortClick"/>
+</LinearLayout>
