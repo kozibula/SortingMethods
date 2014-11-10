@@ -66,37 +66,45 @@ public class SortingActivity extends Activity {
 
         inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
                 InputMethodManager.HIDE_NOT_ALWAYS);
-        try {
-            int elementOne = Integer.valueOf(elementOneEditText.getText().toString());
-            int elementTwo = Integer.valueOf(elementTwoEditText.getText().toString());
-            int elementThree = Integer.valueOf(elementThreeEditText.getText().toString());
-            int elementFour = Integer.valueOf(elementFourEditText.getText().toString());
-            int elementFive = Integer.valueOf(elementFiveEditText.getText().toString());
-            int elementSix = Integer.valueOf(elementSixEditText.getText().toString());
-            int[] numbers = {elementOne, elementTwo, elementThree, elementFour, elementFive, elementSix};
 
+        if (elementOneEditText.getText().toString().trim().equals("") ||
+                elementTwoEditText.getText().toString().trim().equals("") ||
+                elementThreeEditText.getText().toString().trim().equals("") ||
+                elementFourEditText.getText().toString().trim().equals("") ||
+                elementFiveEditText.getText().toString().trim().equals("") ||
+                elementSixEditText.getText().toString().trim().equals("")) {
+            Toast.makeText(getApplicationContext(), "All fields are required!", Toast.LENGTH_LONG).show();
+        } else {
 
-            if (chosenMethod.toLowerCase().matches("bubble")) {
-                bubbleSortMethod(numbers);
-                functionTextView.setText(R.string.bubble_sort_function);
-                functionImageView.setImageResource(R.drawable.bubble_sort);
-            } else if (chosenMethod.toLowerCase().matches("insertion")) {
-                insertionSortMethod(numbers);
-                functionTextView.setText(R.string.insertion_sort_function);
-                functionImageView.setImageResource(R.drawable.insertion_sort);
-            } else if (chosenMethod.toLowerCase().matches("selection")) {
-                selectionSortMethod(numbers);
-                functionTextView.setText(R.string.selection_sort_function);
-                functionImageView.setImageResource(R.drawable.selection_sort);
+            try {
+                int elementOne = Integer.valueOf(elementOneEditText.getText().toString());
+                int elementTwo = Integer.valueOf(elementTwoEditText.getText().toString());
+                int elementThree = Integer.valueOf(elementThreeEditText.getText().toString());
+                int elementFour = Integer.valueOf(elementFourEditText.getText().toString());
+                int elementFive = Integer.valueOf(elementFiveEditText.getText().toString());
+                int elementSix = Integer.valueOf(elementSixEditText.getText().toString());
+                int[] numbers = {elementOne, elementTwo, elementThree, elementFour, elementFive, elementSix};
+
+                if (chosenMethod.toLowerCase().matches("bubble")) {
+                    bubbleSortMethod(numbers);
+                    functionTextView.setText(R.string.bubble_sort_function);
+                    functionImageView.setImageResource(R.drawable.bubble_sort);
+                } else if (chosenMethod.toLowerCase().matches("insertion")) {
+                    insertionSortMethod(numbers);
+                    functionTextView.setText(R.string.insertion_sort_function);
+                    functionImageView.setImageResource(R.drawable.insertion_sort);
+                } else if (chosenMethod.toLowerCase().matches("selection")) {
+                    selectionSortMethod(numbers);
+                    functionTextView.setText(R.string.selection_sort_function);
+                    functionImageView.setImageResource(R.drawable.selection_sort);
+                }
+
+                sortedArrayTextView.setText(numbers[0] + ", " + numbers[1] + ", " + numbers[2] + ", " + numbers[3] + ", " +
+                        numbers[4] + ", " + numbers[5]);
+
+            } catch (Exception e) {
             }
-
-            sortedArrayTextView.setText(numbers[0] + ", " + numbers[1] + ", " + numbers[2] + ", " + numbers[3] + ", " +
-                    numbers[4] + ", " + numbers[5]);
-
-        } catch (Exception e) {
-            Toast.makeText(getApplicationContext(), "Please enter all six numbers!", Toast.LENGTH_LONG);
         }
-
     }
 
     public void bubbleSortMethod(int[] numbers) {
